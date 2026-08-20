@@ -23,8 +23,8 @@
     --color-text-muted: #666666;
     --color-text-light: #999999;
     
-    --color-bg-body: #FFFFFF;
-    --color-bg-light: #FAF6F9;
+    --color-bg-body: #FAF4F7;
+    --color-bg-light: #F6ECF2;
     --color-bg-card: #FFFFFF;
     
     --color-white: #FFFFFF;
@@ -206,29 +206,57 @@ ul {
     width: 100%;
 }
 
-/* Header */
+/* Top Announcement Bar */
+.top-bar-announcement {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.45rem 1rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1001;
+}
+
+/* Header Transparente Integrado ao Fundo */
 .header {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 32px; /* Abaixo da top bar inicial */
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(239, 158, 205, 0.2);
-    transition: var(--transition-normal);
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+    transition: all var(--transition-normal);
 }
 
+/* Header Fixo Transparente com Glassmorphism ao Rolar (Scroll) */
 .header.scrolled {
-    box-shadow: var(--shadow-sm);
-    padding: 0.3rem 0;
+    position: fixed;
+    top: 0;
+    background: rgba(250, 244, 247, 0.92); /* Fundo Champagne Nude com transparência */
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(239, 158, 205, 0.3);
+    box-shadow: 0 4px 20px rgba(159, 16, 124, 0.08);
+    padding: 0;
+    animation: slideDown 0.35s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
 }
 
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 90px;
+}
+
+.header.scrolled .header-container {
+    height: 75px;
 }
 
 .logo-brand {
@@ -329,12 +357,12 @@ ul {
 /* Hero Section */
 .hero {
     position: relative;
-    padding-top: 140px;
+    padding-top: 160px;
     padding-bottom: 80px;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #FFFFFF 0%, #FAF0F6 100%);
+    background: linear-gradient(135deg, var(--color-bg-body) 0%, #F4E5ED 100%);
     overflow: hidden;
 }
 
