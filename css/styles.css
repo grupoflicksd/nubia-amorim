@@ -36,9 +36,9 @@
     --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
 
     /* Typography oficial do Manual da Marca:
-       - Script: Playlist Script -> Montez / Alex Brush
-       - Apoio/Legibilidade: KievitOT Light -> Montserrat Light */
-    --font-heading: 'Montserrat', sans-serif;
+       - Títulos & Apoio: Plus Jakarta Sans / Montserrat (KievitOT Light)
+       - Script: Playlist Script -> Montez / Alex Brush */
+    --font-heading: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
     --font-body: 'Montserrat', sans-serif;
     --font-script: 'Montez', 'Alex Brush', cursive;
 
@@ -221,7 +221,7 @@ ul {
 /* Header Transparente Integrado ao Fundo */
 .header {
     position: absolute;
-    top: 32px; /* Abaixo da top bar inicial */
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -253,55 +253,43 @@ ul {
     align-items: center;
     justify-content: space-between;
     height: 90px;
+    max-width: 1380px;
+    padding: 0 2rem;
 }
 
 .header.scrolled .header-container {
     height: 75px;
 }
 
-.logo-brand {
+.logo-brand-official {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    text-decoration: none;
 }
 
-.logo-icon {
-    width: 46px;
-    height: 46px;
+.brand-logo-img {
+    height: 60px;
+    width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(159, 16, 124, 0.15));
+    filter: drop-shadow(0 2px 8px rgba(159, 16, 124, 0.12));
+    transition: all var(--transition-fast);
 }
 
-.footer-logo-icon {
-    width: 52px;
-    height: 52px;
-    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
+.brand-logo-img.horizontal {
+    height: 80px; /* Aumento discreto de ~18% para excelente leitura de SPA, BELEZA & BRONZE */
 }
 
-.logo-text {
-    display: flex;
-    flex-direction: column;
+.header.scrolled .brand-logo-img.horizontal {
+    height: 64px;
 }
 
-.logo-script {
-    font-family: var(--font-script);
-    font-size: 2.5rem;
-    color: var(--color-primary);
-    line-height: 0.9;
-    font-weight: 400;
+.logo-brand-official:hover .brand-logo-img {
+    transform: scale(1.03);
 }
 
-.logo-script.white {
-    color: var(--color-white);
-}
-
-.logo-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 300; /* KievitOT Light */
-    letter-spacing: 3px;
-    color: #4D4D4D; /* Pantone 10395 C */
-    margin-top: 2px;
+.footer-logo .brand-logo-img {
+    height: 105px; /* Tamanho amplo e proporcional ao layout do rodapé */
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
 }
 
 .logo-tag.white {
@@ -345,6 +333,12 @@ ul {
     gap: 1rem;
 }
 
+.btn-header {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
 .nav-toggle {
     display: none;
     background: none;
@@ -357,9 +351,9 @@ ul {
 /* Hero Section */
 .hero {
     position: relative;
-    padding-top: 160px;
-    padding-bottom: 80px;
-    min-height: 100vh;
+    padding-top: 130px;
+    padding-bottom: 50px;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, var(--color-bg-body) 0%, #F4E5ED 100%);
@@ -367,9 +361,13 @@ ul {
 }
 
 .hero-container {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
     align-items: center;
 }
 
@@ -377,13 +375,13 @@ ul {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.9rem;
     background-color: #FFF;
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-sm);
     border: 1px solid rgba(239, 158, 205, 0.4);
-    font-size: 0.85rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .stars {
@@ -399,30 +397,38 @@ ul {
 }
 
 .hero-title {
-    font-size: 3.25rem;
+    font-size: 2.85rem;
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.18;
     color: var(--color-text-dark);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .hero-description {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--color-text-muted);
     margin-bottom: 2rem;
-    max-width: 540px;
+    max-width: 600px;
 }
 
 .hero-buttons {
     display: flex;
+    align-items: center;
     gap: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.25rem;
+}
+
+.hero-buttons .btn-lg {
+    padding: 0.85rem 1.75rem;
+    font-size: 1rem;
+    white-space: nowrap;
+    height: 52px;
 }
 
 .hero-features {
     display: flex;
     gap: 1.5rem;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--color-text-dark);
     font-weight: 500;
 }
@@ -441,10 +447,12 @@ ul {
 
 .hero-media {
     position: relative;
+    width: 100%;
 }
 
 .image-card-wrapper {
     position: relative;
+    width: 100%;
 }
 
 .main-card {
@@ -452,6 +460,7 @@ ul {
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     border: 6px solid var(--color-white);
+    width: 100%;
 }
 
 .main-card img {
@@ -648,13 +657,18 @@ ul {
 
 .service-img {
     position: relative;
-    height: 200px;
+    height: 230px;
 }
 
 .service-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
+}
+
+.service-img img.img-product {
+    object-position: center 65%; /* Centraliza exatamente os dois frascos e os rótulos */
 }
 
 .service-badge {
@@ -739,13 +753,122 @@ ul {
 }
 
 .cta-banner h3 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     margin-bottom: 0.5rem;
 }
 
 .cta-banner p {
-    font-size: 1.05rem;
     opacity: 0.9;
+    max-width: 500px;
+}
+
+/* ==========================================================================
+   SEÇÃO GUIA DO SEU BRONZEAMENTO (O QUE LEVAR)
+   ========================================================================== */
+.bronze-guide {
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
+}
+
+.guide-wrapper {
+    background: linear-gradient(135deg, rgba(253, 240, 246, 0.6) 0%, rgba(249, 228, 240, 0.4) 100%);
+    border: 1px solid rgba(239, 158, 205, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 1.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.guide-header {
+    margin-bottom: 1.75rem;
+}
+
+.guide-header .section-title {
+    font-size: 1.85rem;
+    margin-bottom: 0.35rem;
+}
+
+.guide-header .section-description {
+    font-size: 0.98rem;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .guide-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.guide-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(239, 158, 205, 0.2);
+    box-shadow: 0 4px 16px rgba(159, 16, 124, 0.04);
+    transition: var(--transition-normal);
+    height: 100%;
+}
+
+.guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+}
+
+.guide-icon-box {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: var(--gradient-soft);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(239, 158, 205, 0.3);
+}
+
+.guide-icon-box svg {
+    width: 20px;
+    height: 20px;
+}
+
+.guide-info h3 {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.guide-info p {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+.guide-footer-text p {
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    font-weight: 500;
 }
 
 .cta-banner .btn-primary {
@@ -914,7 +1037,7 @@ ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
 }
 
 .location-lead {
@@ -927,7 +1050,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .info-item {
@@ -948,6 +1071,14 @@ ul {
     flex-shrink: 0;
 }
 
+.info-icon i,
+.info-icon svg {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    stroke-width: 2px;
+}
+
 .info-item strong {
     display: block;
     font-size: 0.95rem;
@@ -962,7 +1093,23 @@ ul {
 .location-actions {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
+}
+
+.location-map {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.map-card-wrapper {
+    box-shadow: var(--shadow-lg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 4px solid var(--color-white);
+}
+
+.map-action-below .btn {
+    width: 100%;
 }
 
 /* Footer */
@@ -1180,13 +1327,14 @@ ul {
     transform: scale(1.06);
 }
 
-.ig-icon {
-    width: 24px;
-    height: 24px;
+.ig-icon,
+.ig-icon svg {
+    width: 20px;
+    height: 20px;
     color: var(--color-white);
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.85rem;
+    right: 0.85rem;
     z-index: 2;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
