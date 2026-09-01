@@ -767,107 +767,119 @@ ul {
 }
 
 /* ==========================================================================
-   SEÇÃO GUIA DO SEU BRONZEAMENTO (O QUE LEVAR) - CARDS VISUAIS
+   SEÇÃO GUIA DO SEU BRONZEAMENTO - LAYOUT DE 2 COLUNAS ILUSTRADO
    ========================================================================== */
 .bronze-guide {
-    background-color: var(--color-bg-body);
+    background-color: #FAF4F7;
     position: relative;
     padding: 5rem 0;
 }
 
-.guide-photo-grid {
+.guide-split-layout {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     margin-top: 3rem;
     margin-bottom: 2.5rem;
 }
 
-@media (max-width: 1024px) {
-    .guide-photo-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 992px) {
+    .guide-split-layout {
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 }
 
-@media (max-width: 640px) {
-    .guide-photo-grid {
+.guide-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.guide-feature-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(159, 16, 124, 0.05);
+    border: 1px solid rgba(239, 158, 205, 0.3);
+    transition: all var(--transition-normal);
+}
+
+@media (max-width: 576px) {
+    .guide-feature-card {
         grid-template-columns: 1fr;
+        text-align: center;
     }
 }
 
-.guide-photo-card {
-    background: var(--color-white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(239, 158, 205, 0.25);
-    transition: all var(--transition-normal);
-    display: flex;
-    flex-direction: column;
-}
-
-.guide-photo-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+.guide-feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
     border-color: var(--color-primary);
 }
 
-.card-photo-wrapper {
-    position: relative;
-    width: 100%;
-    height: 190px;
+.feature-img-box {
+    width: 140px;
+    height: 140px;
+    border-radius: var(--radius-md);
     overflow: hidden;
+    background-color: #FDF7FA;
 }
 
-.card-photo-wrapper img {
+@media (max-width: 576px) {
+    .feature-img-box {
+        margin: 0 auto;
+    }
+}
+
+.feature-img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
 }
 
-.guide-photo-card:hover .card-photo-wrapper img {
-    transform: scale(1.08);
-}
-
-.card-icon-floating {
-    position: absolute;
-    bottom: -18px;
-    right: 1.25rem;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--gradient-primary);
-    color: var(--color-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-md);
-    border: 2px solid var(--color-white);
-    z-index: 2;
-}
-
-.card-icon-floating svg {
-    width: 20px;
-    height: 20px;
-}
-
-.card-photo-body {
-    padding: 1.5rem 1.25rem;
-    flex: 1;
+.feature-content-box {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
-.card-photo-body h3 {
-    font-size: 1.1rem;
-    color: var(--color-text-dark);
+@media (max-width: 576px) {
+    .feature-content-box {
+        align-items: center;
+    }
+}
+
+.feature-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    background: rgba(159, 16, 124, 0.08);
+    color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
+}
+
+.feature-badge svg {
+    width: 14px;
+    height: 14px;
+}
+
+.feature-content-box h3 {
+    font-size: 1.15rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.4rem;
     font-weight: 600;
 }
 
-.card-photo-body p {
+.feature-content-box p {
     font-size: 0.88rem;
     color: var(--color-text-muted);
     line-height: 1.5;
