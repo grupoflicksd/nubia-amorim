@@ -767,112 +767,135 @@ ul {
 }
 
 /* ==========================================================================
-   SEÇÃO GUIA DO SEU BRONZEAMENTO (O QUE LEVAR)
+   SEÇÃO GUIA DO SEU BRONZEAMENTO (O QUE LEVAR) - CARDS VISUAIS
    ========================================================================== */
 .bronze-guide {
-    background-color: var(--color-white);
+    background-color: var(--color-bg-body);
     position: relative;
-    overflow: hidden;
-    padding: 3rem 0;
+    padding: 5rem 0;
 }
 
-.guide-wrapper {
-    background: linear-gradient(135deg, rgba(253, 240, 246, 0.6) 0%, rgba(249, 228, 240, 0.4) 100%);
-    border: 1px solid rgba(239, 158, 205, 0.3);
-    border-radius: var(--radius-lg);
-    padding: 2.25rem 1.75rem;
-    box-shadow: var(--shadow-sm);
-}
-
-.guide-header {
-    margin-bottom: 1.75rem;
-}
-
-.guide-header .section-title {
-    font-size: 1.85rem;
-    margin-bottom: 0.35rem;
-}
-
-.guide-header .section-description {
-    font-size: 0.98rem;
-}
-
-.guide-grid {
+.guide-photo-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 @media (max-width: 1024px) {
-    .guide-grid {
+    .guide-photo-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 640px) {
-    .guide-grid {
+    .guide-photo-grid {
         grid-template-columns: 1fr;
     }
 }
 
-.guide-card {
+.guide-photo-card {
     background: var(--color-white);
-    border-radius: var(--radius-md);
-    padding: 1.25rem 1rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(239, 158, 205, 0.25);
+    transition: all var(--transition-normal);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.75rem;
-    border: 1px solid rgba(239, 158, 205, 0.2);
-    box-shadow: 0 4px 16px rgba(159, 16, 124, 0.04);
-    transition: var(--transition-normal);
-    height: 100%;
 }
 
-.guide-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+.guide-photo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
     border-color: var(--color-primary);
 }
 
-.guide-icon-box {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
+.card-photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+}
+
+.card-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.guide-photo-card:hover .card-photo-wrapper img {
+    transform: scale(1.08);
+}
+
+.card-icon-floating {
+    position: absolute;
+    bottom: -18px;
+    right: 1.25rem;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background: var(--gradient-soft);
-    color: var(--color-primary);
+    background: var(--gradient-primary);
+    color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(239, 158, 205, 0.3);
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--color-white);
+    z-index: 2;
 }
 
-.guide-icon-box svg {
+.card-icon-floating svg {
     width: 20px;
     height: 20px;
 }
 
-.guide-info h3 {
-    font-size: 1rem;
-    color: var(--color-primary);
-    margin-bottom: 0.35rem;
+.card-photo-body {
+    padding: 1.5rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-photo-body h3 {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
-.guide-info p {
-    font-size: 0.84rem;
+.card-photo-body p {
+    font-size: 0.88rem;
     color: var(--color-text-muted);
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
-.guide-footer-text p {
-    font-size: 0.95rem;
+.guide-note-banner {
+    background: linear-gradient(135deg, rgba(253, 240, 246, 0.9) 0%, rgba(249, 228, 240, 0.8) 100%);
+    border: 1px solid rgba(239, 158, 205, 0.4);
+    border-radius: var(--radius-full);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 800px;
+    margin: 0 auto;
     color: var(--color-primary);
     font-weight: 500;
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.guide-note-banner .note-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
 }
 
 .cta-banner .btn-primary {
