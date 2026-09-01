@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nubiaamorim.com.br/sitemap.xml
+Sitemap: https://nubiaamorimspa.com.br/sitemap.xml
