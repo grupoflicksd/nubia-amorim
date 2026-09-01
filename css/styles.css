@@ -351,9 +351,9 @@ ul {
 /* Hero Section */
 .hero {
     position: relative;
-    padding-top: 130px;
-    padding-bottom: 50px;
-    min-height: 90vh;
+    padding-top: 120px;
+    padding-bottom: 3.5rem;
+    min-height: auto;
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, var(--color-bg-body) 0%, #F4E5ED 100%);
@@ -366,7 +366,7 @@ ul {
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 0.95fr;
     gap: 3.5rem;
     align-items: center;
 }
@@ -465,8 +465,10 @@ ul {
 
 .main-card img {
     width: 100%;
-    height: 480px;
+    height: 450px;
     object-fit: cover;
+    object-position: center 25%;
+    display: block;
 }
 
 .floating-badge {
