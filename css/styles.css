@@ -351,11 +351,12 @@ ul {
 /* Hero Section */
 .hero {
     position: relative;
-    padding-top: 120px;
-    padding-bottom: 3.5rem;
-    min-height: auto;
+    padding-top: 90px;
+    padding-bottom: 0;
+    min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     background: linear-gradient(135deg, var(--color-bg-body) 0%, #F4E5ED 100%);
     overflow: hidden;
 }
@@ -364,9 +365,9 @@ ul {
     width: 100%;
     max-width: 1380px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 2rem;
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3.5rem;
     align-items: center;
 }
@@ -465,9 +466,10 @@ ul {
 
 .main-card img {
     width: 100%;
-    height: 450px;
+    height: 520px;
+    max-height: 60vh;
     object-fit: cover;
-    object-position: center 25%;
+    object-position: center;
     display: block;
 }
 
