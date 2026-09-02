@@ -357,11 +357,25 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-bg-body) 0%, #F4E5ED 100%);
+    background: url('../img/hero-bg-metallic.jpg') no-repeat center center / cover;
     overflow: hidden;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(250, 244, 247, 0.58) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
 .hero-container {
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 1380px;
     margin: 0 auto;
