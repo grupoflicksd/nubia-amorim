@@ -174,4 +174,25 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', updateIgNavButtons);
         updateIgNavButtons();
     }
+
+    // 7. Carregamento Sob Demanda do Google Maps Iframe (Performance Optimization)
+    const lazyMapContainer = document.getElementById('lazy-map-container');
+    if (lazyMapContainer) {
+        lazyMapContainer.addEventListener('click', () => {
+            if (lazyMapContainer.querySelector('iframe')) return; // Já carregou
+
+            const iframe = document.createElement('iframe');
+            iframe.src = "https://maps.google.com/maps?q=St.+de+Habita%C3%A7%C3%B5es+Individuais+Norte+QI+6+casa+7+-+Lago+Norte,+Bras%C3%ADlia+-+DF,+71520-090&t=&z=16&ie=UTF8&iwloc=&output=embed";
+            iframe.width = "100%";
+            iframe.height = "100%";
+            iframe.style.border = "0";
+            iframe.style.borderRadius = "16px";
+            iframe.allowFullscreen = true;
+            iframe.loading = "eager";
+
+            lazyMapContainer.innerHTML = '';
+            lazyMapContainer.appendChild(iframe);
+            lazyMapContainer.classList.remove('lazy-map-container');
+        });
+    }
 });
